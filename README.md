@@ -12,11 +12,11 @@ To configure PaperCraft for another college or university, update the institutio
 
 | Area | File(s) | What to Customize |
 | :--- | :--- | :--- |
-| **Institution & Exam Patterns** | `frontend/src/data/defaultPatterns.ts` | Update `DEFAULT_METADATA` (college name, subheader, degree, department, regulation, register number format) and `QUESTION_PATTERNS` (parts, mark splits, internal choice rules). |
-| **College Emblem & Assets** | `frontend/public/images/`<br>`frontend/src/components/layout/Sidebar.tsx` | Replace `psna_crest.png` / `psna_logo.png` with your college crest and update the badge path or fallback labels in `Sidebar.tsx`. |
-| **Curriculum & Course Presets** | `frontend/src/data/psnaCurriculum.ts`<br>`frontend/src/data/psnaCoursesCatalog.ts` | Replace `PSNA_CSE_CURRICULUM`, `ELECTIVE_COURSES`, and `PSNA_COURSE_PRESETS` with your department's semesters, course codes, QP codes, and syllabus titles. |
-| **Question Banks & Sample Papers** | `frontend/src/data/psnaQuestionBank.ts`<br>`frontend/src/data/psnaSem*QuestionBank.ts`<br>`frontend/src/data/defaultCoursePapers.ts` | Populate unit-wise 2-mark questions, 13/15/16-mark descriptive questions, and course sample papers for your subjects. |
-| **A4 Sheet Header & UI Labels** | `frontend/src/components/paper/InstitutionalPaperView.tsx`<br>`frontend/src/components/layout/Header.tsx` | Adjust the 16-cell Register Number grid, metadata rows, or profile display to match your controller of examinations layout. |
+| **Institution & Exam Patterns** | `src/data/defaultPatterns.ts` | Update `DEFAULT_METADATA` (college name, subheader, degree, department, regulation, register number format) and `QUESTION_PATTERNS` (parts, mark splits, internal choice rules). |
+| **College Emblem & Assets** | `public/images/`<br>`src/components/layout/Sidebar.tsx` | Replace `psna_crest.png` / `psna_logo.png` with your college crest and update the badge path or fallback labels in `Sidebar.tsx`. |
+| **Curriculum & Course Presets** | `src/data/psnaCurriculum.ts`<br>`src/data/psnaCoursesCatalog.ts` | Replace `PSNA_CSE_CURRICULUM`, `ELECTIVE_COURSES`, and `PSNA_COURSE_PRESETS` with your department's semesters, course codes, QP codes, and syllabus titles. |
+| **Question Banks & Sample Papers** | `src/data/psnaQuestionBank.ts`<br>`src/data/psnaSem*QuestionBank.ts`<br>`src/data/defaultCoursePapers.ts` | Populate unit-wise 2-mark questions, 13/15/16-mark descriptive questions, and course sample papers for your subjects. |
+| **A4 Sheet Header & UI Labels** | `src/components/paper/InstitutionalPaperView.tsx`<br>`src/components/layout/Header.tsx` | Adjust the 16-cell Register Number grid, metadata rows, or profile display to match your controller of examinations layout. |
 
 ## Key Capabilities
 
@@ -28,26 +28,26 @@ To configure PaperCraft for another college or university, update the institutio
 
 ## Tech Stack & Structure
 
-- **Frontend**: Next.js 15 (App Router, standalone output), React 19, TypeScript, Tailwind CSS, Zustand, Lucide Icons, Socket.IO Client
+- **Stack**: Next.js 15 (App Router, standalone output), React 19, TypeScript, Tailwind CSS, Zustand, Lucide Icons, Socket.IO Client
 
 ```text
 papercraft/
+├── .dockerignore
 ├── .gitignore
+├── Dockerfile
 ├── README.md
-└── frontend/
-    ├── Dockerfile
-    ├── next.config.ts
-    ├── package.json
-    ├── public/images/          # Institutional crest, logo, empty-state assets
-    └── src/
-        ├── app/                # Routes: /, /papers, /templates, /about, /output/[id]
-        ├── components/         # Dashboard, studio forms, A4 sheet view, drawers
-        ├── data/               # Exam patterns, curriculum catalog, question banks
-        ├── hooks/              # WebSocket hook (optional backend integration)
-        ├── services/           # REST API client (optional backend integration)
-        ├── store/              # Zustand stores (papercraft-storage persistence)
-        ├── styles/             # Global & A4 @media print stylesheets
-        └── types/              # TypeScript interfaces
+├── next.config.ts
+├── package.json
+├── public/images/              # Institutional crest, logo, empty-state assets
+└── src/
+    ├── app/                    # Routes: /, /papers, /templates, /about, /output/[id]
+    ├── components/             # Dashboard, studio forms, A4 sheet view, drawers
+    ├── data/                   # Exam patterns, curriculum catalog, question banks
+    ├── hooks/                  # WebSocket hook (optional external API integration)
+    ├── services/               # REST API client (optional external API integration)
+    ├── store/                  # Zustand stores (papercraft-storage persistence)
+    ├── styles/                 # Global & A4 @media print stylesheets
+    └── types/                  # TypeScript interfaces
 ```
 
 ## Setup Instructions
@@ -59,8 +59,8 @@ papercraft/
 ### Local Development
 
 ```bash
-git clone <your-repo-url>
-cd papercraft/frontend
+git clone https://github.com/ntbnaren7/papercraft.git
+cd papercraft
 npm install
 npm run dev
 ```
@@ -70,7 +70,7 @@ Open [http://localhost:3000](http://localhost:3000).
 ### Production Build
 
 ```bash
-cd papercraft/frontend
+cd papercraft
 npm ci
 npm run build
 npm start
@@ -79,16 +79,15 @@ npm start
 ### Docker
 
 ```bash
-docker build -t papercraft ./frontend
+docker build -t papercraft .
 docker run -p 3000:3000 papercraft
 ```
 
 ### Optional Environment Variables
 
-The standalone frontend works out of the box using the built-in curriculum and question bank datasets. If connecting an external backend service (`frontend/src/services/api.ts`, `frontend/src/hooks/useWebSocket.ts`), create `frontend/.env.local` (git-ignored):
+PaperCraft works standalone out of the box using the built-in curriculum and question bank datasets. If connecting an external backend service (`src/services/api.ts`, `src/hooks/useWebSocket.ts`), create `.env.local` (git-ignored):
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:5001/api
 NEXT_PUBLIC_WS_URL=http://localhost:5001
 ```
-
