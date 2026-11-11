@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&family=Inter:wght@400;500;600;700;800&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-bricolage: 'Bricolage Grotesque', serif, sans-serif;
+    --font-times: 'Times New Roman', Tinos, 'Nimbus Roman', Times, serif;
+  }
+
+  body {
+    @apply bg-[#E9ECF0] text-slate-800 antialiased min-h-screen font-sans;
+  }
+}
+
+/* Authentic academic examination typography */
+.font-exam-paper {
+  font-family: 'Times New Roman', Tinos, 'Nimbus Roman', Times, Georgia, serif;
+}
+
+/* Subtle dot-pattern background */
+.bg-dot-pattern {
+  background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* ── Screen & Print Styles for Physical A4 Sheets ── */
+.a4-sheet {
+  font-family: 'Times New Roman', Tinos, 'Nimbus Roman', Times, Georgia, serif;
+  width: 100%;
+  max-width: 794px;
+  min-height: 1123px;
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+  padding: 46px 54px 36px 54px;
+  margin: 0 auto 36px auto;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10.5pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide all app chrome, buttons, badges, modals, and navigation */
+  .no-print,
+  nav,
+  header,
+  aside,
+  footer,
+  button,
+  .print-hidden {
+    display: none !important;
+  }
+
+  /* Each A4 sheet maps 1:1 to an actual physical printed page */
+  .a4-sheet {
+    font-family: 'Times New Roman', Tinos, 'Nimbus Roman', Times, Georgia, serif !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    padding: 14mm 16mm 12mm 16mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .a4-sheet:last-of-type {
+    page-break-after: avoid !important;
+    break-after: auto !important;
+  }
+
+  .page-break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

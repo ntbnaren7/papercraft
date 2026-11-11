@@ -1,0 +1,382 @@
+/* ══════════════════════════════════════════
+   OUTPUT PAGE
+   ══════════════════════════════════════════ */
+
+.output-page-wrapper {
+  background: #4E5154;
+  border-radius: 24px;
+  padding: 24px;
+  margin: 0;
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Dark banner callout */
+.banner-callout {
+  background: #1E1F21;
+  color: #FFFFFF;
+  padding: 24px 32px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.banner-callout-text {
+  font-family: var(--font-bricolage), sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #E2E8F0;
+}
+
+.banner-callout .btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #FFFFFF;
+  color: #1E1F21;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.banner-callout .btn-download svg {
+  width: 16px;
+  height: 16px;
+}
+
+.banner-callout .btn-download:hover {
+  background: #F3F4F6;
+  transform: translateY(-1px);
+}
+
+/* Question Paper – A4 style sheet */
+.paper-sheet {
+  background: #FFFFFF;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 48px 56px;
+  color: #000000;
+  font-family: var(--font-bricolage), sans-serif;
+}
+
+.paper-school-name {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.paper-sub-header {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 4px;
+}
+
+.paper-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.paper-instructions {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #000000;
+}
+
+.paper-instructions p {
+  margin: 4px 0;
+}
+
+.paper-student-info {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 300px;
+}
+
+.paper-student-field {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.paper-student-line {
+  flex: 1;
+  border-bottom: 1px solid #000000;
+  min-width: 150px;
+}
+
+.paper-section-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  color: #000000;
+}
+
+.paper-section-type {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.paper-section-instruction {
+  font-size: 13px;
+  font-style: italic;
+  color: #707070;
+  margin-bottom: 16px;
+}
+
+.paper-question-list {
+  list-style: none;
+  padding: 0;
+}
+
+.paper-question-item {
+  margin-bottom: 16px;
+  padding-left: 24px;
+  padding-right: 48px;
+  position: relative;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #000000;
+  white-space: pre-wrap;
+}
+
+.paper-question-item::before {
+  content: attr(value) '. ';
+  position: absolute;
+  left: 0;
+  font-weight: 600;
+}
+
+.paper-question-marks-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-weight: 700;
+  font-size: 14px;
+  color: #000000;
+}
+
+.paper-question-difficulty {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.paper-question-marks {
+  font-weight: 600;
+  font-size: 13px;
+  color: #333333;
+}
+
+.paper-question-options {
+  margin-top: 8px;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* End of Question Paper styling */
+.paper-end-text {
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: #000000;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  border-top: 1px dashed #E2E8F0;
+  padding-top: 24px;
+}
+
+/* Answer Key Section */
+.paper-answer-key-section {
+  margin-top: 24px;
+}
+
+.paper-answer-key-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.paper-answer-key-list {
+  list-style: none;
+  padding: 0;
+}
+
+.paper-answer-key-item {
+  margin-bottom: 16px;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #333333;
+  white-space: pre-wrap;
+}
+
+.paper-answer-key-item::before {
+  content: attr(value) '. ';
+  position: absolute;
+  left: 0;
+  font-weight: 600;
+  color: #000000;
+}
+
+.paper-department-name {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16px;
+  margin-top: -4px;
+}
+
+.paper-student-info.college {
+  max-width: 480px;
+}
+
+.choice-options-container {
+  margin-top: 8px;
+  padding-left: 24px;
+}
+
+.choice-option {
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.choice-letter {
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.choice-or {
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: lowercase;
+  margin: 4px 0;
+  color: #000000;
+  padding-left: 0;
+}
+
+/* ══════════════════════════════════════════
+   MOBILE RESPONSIVE
+   ══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .output-page-wrapper {
+    padding: 12px;
+    border-radius: 12px;
+  }
+  .paper-sheet {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+  .paper-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* ══════════════════════════════════════════
+   GOTHIC LOADER
+   ══════════════════════════════════════════ */
+.gothic-loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  min-height: 400px;
+  gap: 24px;
+  padding: 0 24px;
+}
+
+.gothic-progress-container {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.gothic-progress-track {
+  width: 100%;
+  background: var(--gray-300);
+  height: 6px;
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.gothic-progress-fill {
+  background: var(--gray-900);
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.5s ease-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.gothic-text-carousel {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.gothic-loader-text {
+  position: absolute;
+  width: 100%;
+  font-family: var(--font-bricolage), sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-out;
+  pointer-events: none;
+}
+
+.gothic-loader-text.active {
+  opacity: 1;
+  transform: translateY(0);
+}
